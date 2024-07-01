@@ -1,0 +1,9 @@
+form {
+    height: 34 rem; /* 1rem = 16px */
+    border: .1rem solid #ededed;
+    background-color: #b5b5b5;
+}
+
+mat-form-field {
+    width: 400px;
+}
