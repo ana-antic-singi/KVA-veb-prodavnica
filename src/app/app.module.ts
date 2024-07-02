@@ -10,13 +10,16 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
+import { ProductComponent } from './product/product.component';
+import { ProductService } from './product/product.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { FlexLayoutModule } from '@ngbracket/ngx-layout';
     FlexLayoutModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(), ProductService
   ],
   bootstrap: [AppComponent]
 })

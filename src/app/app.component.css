@@ -1,0 +1,17 @@
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: #f7ceff;
+}
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+
+mat-sidenav {
+    width: 12rem;
+}
