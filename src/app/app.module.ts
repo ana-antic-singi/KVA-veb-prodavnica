@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { ProductComponent } from './product/product.component';
 import { ProductService } from './product/product.service';
+import { CartComponent } from './cart/cart.component';
+import { UserService } from './auth/user.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ProductService } from './product/product.service';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { ProductService } from './product/product.service';
     FlexLayoutModule
   ],
   providers: [
-    provideAnimationsAsync(), ProductService
+    provideAnimationsAsync(), ProductService, UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,40 @@
-form {
-    height: 34 rem; /* 1rem = 16px */
-    border: .1rem solid #ededed;
-    background-color: #b5b5b5;
+.signup-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin-top: 15vh;
+}
+
+.signup-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    box-sizing: border-box;
 }
 
 mat-form-field {
-    width: 400px;
+    width: 100%;
+}
+
+.form-field {
+    margin-bottom: 0.5rem;
+}
+
+button[type="submit"] {
+    margin-top: 1rem;
+    color: #fff;
+    background-color: #320153;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+a {
+    color: #320153;
 }

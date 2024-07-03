@@ -4,9 +4,56 @@
   </mat-form-field>
 </div>
 
-<mat-paginator [pageSize]="3" [pageSizeOptions]="[3,6,9]"></mat-paginator>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" class="control-bar">
+  <div fxLayout="row" fxFlex="80">
+    <mat-form-field appearance="fill" class="fixed-width">
+      <mat-select placeholder="Price" (selectionChange)="sortData($event.value)" #sortSelect>
+        <mat-select-trigger>
+          <ng-container *ngIf="sortSelect.value === 'asc'">
+            Price &#8593; 
+          </ng-container>
+          <ng-container *ngIf="sortSelect.value === 'desc'">
+            Price &#8595; 
+          </ng-container>
+          <ng-container *ngIf="!sortSelect.value">
+            Sort by Price
+          </ng-container>
+        </mat-select-trigger>
+        <mat-option value="asc">Low to High</mat-option>
+        <mat-option value="desc">High to Low</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="fixed-width">
+      <mat-select placeholder="Type" (selectionChange)="filterByType($event.value)" #typeSelect>
+        <mat-option *ngFor="let type of uniqueTypes" [value]="type">{{ type }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div fxFlex="40" class="sort-chip-container" *ngIf="activeTypeFilter || activeSort">
+    <mat-chip-listbox>
+      <mat-chip *ngIf="activeSort" color="primary" selected (removed)="clearSort(sortSelect)">
+        {{ activeSortText }}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <mat-chip *ngIf="activeTypeFilter" color="primary" selected (removed)="clearTypeFilter(typeSelect)">
+        Filtered by Type: {{ activeTypeFilter }}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-listbox>
+  </div>
+
+  <div fxFlex="80">
+    <mat-paginator [pageSize]="3" [pageSizeOptions]="[3,6,9,12]"></mat-paginator>
+  </div>
+</div>
+
+
 
 <div class="container">
+
   <div *ngFor="let product of productSource.connect() | async">
     <mat-card>
       <mat-card-header>
@@ -17,6 +64,10 @@
       <mat-card-content>
         <p>Price: {{product.price}} RSD</p>
       </mat-card-content>
+      <mat-card-actions>
+        <!-- <button mat-button>Add to cart</button> -->
+        <button mat-button (click)="addToCart(product)">Add to Cart</button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>

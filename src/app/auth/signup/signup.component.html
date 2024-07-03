@@ -1,8 +1,28 @@
-<section>
-    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem" #f="ngForm" (ngSubmit)="onSubmit(f)">
+<section class="signup-section">
+    <form 
+        class="signup-form"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="0.5rem"
+        #f="ngForm"
+        (ngSubmit)="onSubmit(f)"
+    >
+        <!-- Username -->
+        <mat-form-field appearance="outline" class="form-field">
+            <input 
+                type="text" 
+                matInput 
+                placeholder="Your username" 
+                name="username" 
+                ngModel 
+                required 
+                #usernameInput="ngModel"
+            >
+            <mat-error *ngIf="usernameInput.hasError('required')">Field should not be empty</mat-error>
+        </mat-form-field>
 
         <!-- Email -->
-        <mat-form-field>
+        <mat-form-field appearance="outline" class="form-field">
             <input 
                 type="email" 
                 matInput 
@@ -16,8 +36,22 @@
             <mat-error *ngIf="emailInput.hasError('required')">Field should not be empty</mat-error>
         </mat-form-field>
 
+         <!-- Card Number -->
+         <mat-form-field appearance="outline" class="form-field">
+            <input 
+                type="text" 
+                matInput 
+                placeholder="Your card number" 
+                name="cardNumber" 
+                ngModel 
+                required 
+                #cardNumberInput="ngModel"
+            >
+            <mat-error *ngIf="cardNumberInput.hasError('required')">Field should not be empty</mat-error>
+        </mat-form-field>   
+
         <!-- Password  -->
-        <mat-form-field>
+        <mat-form-field appearance="outline" class="form-field">
             <input 
                 type="password" 
                 matInput 
@@ -28,21 +62,15 @@
                 #passInput="ngModel" 
                 minlength="8"
             >
-
             <!-- pass hint -->
             <mat-hint align="end">{{ passInput.value?.length }} / 8</mat-hint>
         </mat-form-field>
 
-        <mat-form-field>
-            <input matInput placeholder="Your date of birth" [matDatepicker]="picker" ngModel name="birthDate" required>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <mat-checkbox color="primary" ngModel name="acceptance" required fxLayoutGap="1rem">
-            I accept the terms of conditions of use.
-        </mat-checkbox>
-
-        <button type="submit" mat-raised-button color="warn" [disabled]="f.invalid">Submit</button>
+        <!-- Submit Button -->
+        <button type="submit" mat-raised-button color="primary">Submit</button>
     </form>
+    
+    <p class="signup-link">
+        Already have an account? <a routerLink="/login">Login</a>
+    </p>
 </section>

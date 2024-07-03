@@ -17,7 +17,7 @@
   }
   
   mat-card img {
-    max-height: 200px;
+    max-height: 170px;
     object-fit: cover;
   }
   
@@ -32,4 +32,38 @@
     font-size: 1.2em;
     color: #555;
   }
+
+  
+
+  
+  .sort-dropdown {
+    display: flex;
+    align-items: center;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-right: 10px;
+  }
+  
+
+  .control-bar {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-left:20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .fixed-width {
+    width: 100px; 
+  }
+  
+  .sort-chip-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 10px;
+  }
+
   

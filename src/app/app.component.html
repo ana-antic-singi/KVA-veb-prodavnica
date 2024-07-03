@@ -7,6 +7,10 @@
                 <mat-icon>home</mat-icon>
                 Home
             </a>
+            <a mat-list-item routerLink="/cart" (click)="sidenav.close()">
+                <mat-icon>shopping_cart</mat-icon>
+                Cart
+            </a>
             <a mat-list-item routerLink="/signup" (click)="sidenav.close()">
                 <mat-icon>person</mat-icon>
                 Signup
@@ -36,12 +40,14 @@
             </div>
 
             <div>
-                <a routerLink="/">Logo</a>
+                <a color="#320153"routerLink="/"><mat-icon>storefront</mat-icon> My shop</a>
             </div>
             <!--ovo je toolbar gore-->
             <div fxFlex fxLayoutAlign="end" fxLayoutGap="12px" fxHide.xs>
-                <a routerLink="/signup">Signup</a>
-                <a routerLink="/login">Login</a>
+                <a routerLink="/"><mat-icon>checkroom</mat-icon> Clothes</a>
+                <a routerLink="/signup"><mat-icon>person</mat-icon> Signup</a>
+                <a routerLink="/login"><mat-icon>input</mat-icon> Login</a>
+                <a routerLink="/cart"><mat-icon>shopping_cart</mat-icon> Cart</a>
             </div>
         </mat-toolbar>
 
