@@ -11,17 +11,15 @@
                 <mat-icon>shopping_cart</mat-icon>
                 Cart
             </a>
-            <a mat-list-item routerLink="/signup" (click)="sidenav.close()">
+            <a mat-list-item *ngIf="!isLoggedIn" routerLink="/signup" (click)="sidenav.close()">
                 <mat-icon>person</mat-icon>
                 Signup
             </a>
-
-            <a mat-list-item routerLink="/login" (click)="sidenav.close()">
-                <mat-icon>input</mat-icon>
+            <a mat-list-item *ngIf="!isLoggedIn" routerLink="/login" (click)="sidenav.close()">
+                <mat-icon>login</mat-icon>
                 Login
             </a>
-            
-            <a mat-list-item routerLink="/" (click)="sidenav.close()">
+            <a mat-list-item *ngIf="isLoggedIn" routerLink="/login" (click)="logout(); sidenav.close()">
                 <mat-icon>logout</mat-icon>
                 Logout
             </a>
@@ -40,14 +38,30 @@
             </div>
 
             <div>
-                <a color="#320153"routerLink="/"><mat-icon>storefront</mat-icon> My shop</a>
+                <a color="#320153" routerLink="/"><mat-icon>storefront</mat-icon> My shop</a>
             </div>
             <!--ovo je toolbar gore-->
             <div fxFlex fxLayoutAlign="end" fxLayoutGap="12px" fxHide.xs>
-                <a routerLink="/"><mat-icon>checkroom</mat-icon> Clothes</a>
-                <a routerLink="/signup"><mat-icon>person</mat-icon> Signup</a>
-                <a routerLink="/login"><mat-icon>input</mat-icon> Login</a>
-                <a routerLink="/cart"><mat-icon>shopping_cart</mat-icon> Cart</a>
+                <a routerLink="/">
+                    <mat-icon>checkroom</mat-icon> 
+                    Clothes
+                </a>
+                <a *ngIf="!isLoggedIn" routerLink="/signup">
+                    <mat-icon>person</mat-icon> 
+                    Signup
+                </a>
+                <a *ngIf="!isLoggedIn" routerLink="/login">
+                    <mat-icon>login</mat-icon> 
+                    Login
+                </a>
+                <a *ngIf="isLoggedIn" routerLink="/login" (click)="logout()">
+                    <mat-icon>logout</mat-icon> 
+                    Logout
+                </a>
+                <a routerLink="/cart">
+                    <mat-icon>shopping_cart</mat-icon>
+                     Cart
+                </a>
             </div>
         </mat-toolbar>
 

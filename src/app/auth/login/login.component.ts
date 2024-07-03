@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,10 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent{
 
-constructor(private userService: UserService){}
+constructor(
+  private userService: UserService, 
+  private router: Router, 
+  private authService: AuthService){}
 
 ngOnInit(): void {
   this.userService.getUsers();
@@ -21,6 +26,8 @@ ngOnInit(): void {
 
     if (this.userService.userExists(email, password)) {
       console.log('User exists');
+      this.authService.login(email);
+      this.router.navigate(['/']);
     } else {
       window.alert("Wrong email or password!")
       console.log('User does not exist');
