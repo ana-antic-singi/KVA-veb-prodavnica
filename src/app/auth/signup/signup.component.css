@@ -38,3 +38,14 @@ button[type="submit"] {
 a {
     color: #320153;
 }
+.signup-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

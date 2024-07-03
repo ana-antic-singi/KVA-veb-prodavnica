@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +10,26 @@ import { NgForm } from '@angular/forms';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
+
+  constructor(
+    private userService: UserService, 
+    private router: Router, 
+    private authService: AuthService){}
+    
   onSubmit(form: NgForm) {
-    console.log(form);
+    const email = form.value.email;
+    console.log(email);
+
+    if (this.userService.emailExists(email)){
+        window.alert("Email taken!")
+        console.log("zauzet mejl");
+    }
+    else{
+      console.log("ok mejl");
+      const password = form.value.password;
+      const cardNumber = form.value.cardNumber;
+      this.userService.newUser(password, email, cardNumber)
+      this.router.navigate(['/login']);
+    }
   }
 }

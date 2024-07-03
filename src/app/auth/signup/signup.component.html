@@ -1,4 +1,6 @@
 <section class="signup-section">
+    <div class="signup-container">
+        <h2 class="signup-title">Sign up</h2>
     <form 
         class="signup-form"
         fxLayout="column"
@@ -7,20 +9,6 @@
         #f="ngForm"
         (ngSubmit)="onSubmit(f)"
     >
-        <!-- Username -->
-        <mat-form-field appearance="outline" class="form-field">
-            <input 
-                type="text" 
-                matInput 
-                placeholder="Your username" 
-                name="username" 
-                ngModel 
-                required 
-                #usernameInput="ngModel"
-            >
-            <mat-error *ngIf="usernameInput.hasError('required')">Field should not be empty</mat-error>
-        </mat-form-field>
-
         <!-- Email -->
         <mat-form-field appearance="outline" class="form-field">
             <input 
@@ -73,4 +61,5 @@
     <p class="signup-link">
         Already have an account? <a routerLink="/login">Login</a>
     </p>
+    </div>
 </section>
