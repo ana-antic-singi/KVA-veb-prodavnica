@@ -17,8 +17,8 @@
   }
   
   mat-card img {
-    max-height: 170px;
-    object-fit: cover;
+    height: 165px;
+    object-fit:contain;
   }
   
   mat-card-title, mat-card-subtitle {
