@@ -8,6 +8,7 @@ import { count } from 'rxjs';
 import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { CartComponent } from '../cart/cart.component';
 import { CartService } from '../cart/cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -16,7 +17,6 @@ import { CartService } from '../cart/cart.service';
 })
 
 export class ProductComponent implements OnInit, AfterViewInit{
-  //displayedColumns = ["name","type","price"]
   productSource = new MatTableDataSource<Product>();
   allProducts: Product[] = [];
   uniqueTypes: string[] = [];
@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit, AfterViewInit{
   @ViewChild(MatPaginator) paginator !: MatPaginator; // preskačemo parametar u konstruktoru, garantujemo da ćemo ga posle u funkciji dodeliti
   @ViewChild(MatSort) sort !: MatSort; 
 
-  constructor(private productService: ProductService, private cartService: CartService){}
+  constructor(private productService: ProductService, private cartService: CartService, private snackBar: MatSnackBar,){}
 
   ngOnInit(): void { // .data!!!!
     this.allProducts = this.productService.getProducts();
@@ -106,7 +106,10 @@ export class ProductComponent implements OnInit, AfterViewInit{
 
   addToCart(product: Product){
     console.log(product);
-    window.alert("Dodato u korpu!")
+    //window.alert("Dodato u korpu!")
+    this.snackBar.open('Dodato u korpu!', 'Close', {
+      duration: 2000,
+    });
     this.cartService.addToCart(product)
   }
 }

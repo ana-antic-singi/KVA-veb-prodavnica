@@ -14,6 +14,9 @@ import { CheckoutDialogComponent } from '../checkout-dialog/checkout-dialog.comp
 export class CartComponent implements OnInit {
   cartItems: { product: Product, count: number }[] = [];
   isLoggedIn: boolean = false;
+  showOrder: boolean = false;
+
+
   constructor (
       private cartService: CartService,
       private router: Router,
@@ -44,10 +47,18 @@ export class CartComponent implements OnInit {
       this.router.navigate(['/login']);
     } else {
       const totalPrice = this.getTotalPrice(this.cartItems);
-      this.dialog.open(CheckoutDialogComponent, {
+      const dialogRef = this.dialog.open(CheckoutDialogComponent, {
         data: { cartItems: this.cartItems, totalPrice: totalPrice }
       });
+      
+      dialogRef.componentInstance.confirmEvent.subscribe(() => {
+        this.showOrder = true;
+      });
     }
+    
   }
+
+
+  
 
 }

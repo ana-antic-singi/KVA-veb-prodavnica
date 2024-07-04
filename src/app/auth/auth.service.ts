@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+//singleton
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
   loggedInStatus = this.loggedIn.asObservable();
 

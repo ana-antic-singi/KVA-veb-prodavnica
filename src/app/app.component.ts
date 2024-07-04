@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
+import {Component } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent {
   title = 'veb-prodavnica';
+
   isLoggedIn: boolean = false;
 
   constructor(private authService: AuthService) {}

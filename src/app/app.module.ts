@@ -15,6 +15,7 @@ import { ProductService } from './product/product.service';
 import { CartComponent } from './cart/cart.component';
 import { UserService } from './auth/user.service';
 import { CheckoutDialogComponent } from './checkout-dialog/checkout-dialog.component';
+import { OrderComponent } from './order/order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +25,14 @@ import { CheckoutDialogComponent } from './checkout-dialog/checkout-dialog.compo
     ProductComponent,
     CartComponent,
     CheckoutDialogComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     FormsModule, // !!!
-    FlexLayoutModule
+    FlexLayoutModule // !!!
   ],
   providers: [
     provideAnimationsAsync(), ProductService, UserService

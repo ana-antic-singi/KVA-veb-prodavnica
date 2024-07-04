@@ -1,6 +1,6 @@
 .cart-container {
     padding: 16px;
-    background-color: #c6a9d1;
+    background-color: #eddef3;
     border-radius: 8px;
     border:#320153;
     max-width: 600px;
@@ -21,15 +21,12 @@
   }
   
   button {
-    background-color: #e91e63;
+    background-color:white;
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
   }
-  
-  button:hover {
-    background-color: #d81b60;
-  }
+
   

@@ -49,8 +49,11 @@
     ! chips
     https://material.angular.io/components/chips/overview
 
-
+    ! dialog
+    https://material.angular.io/components/dialog/overview
     
+    ! snack bar
+    https://material.angular.io/components/snack-bar/overview
 */
 
 import { NgModule } from "@angular/core";
@@ -71,7 +74,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
     imports:[
         MatFormFieldModule, MatInputModule, MatButtonModule, 
@@ -79,14 +82,16 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatNativeDateModule, MatIconModule, MatCheckboxModule, 
         MatListModule, MatTableModule, MatSortModule,
         MatCardModule, MatPaginator, MatSelectModule,
-        MatChipsModule, MatDialogModule],
+        MatChipsModule, MatDialogModule, MatSnackBarModule,
+        ],
     exports:[
         MatFormFieldModule, MatInputModule, MatButtonModule, 
         MatSidenavModule, MatToolbarModule, MatDatepickerModule, 
         MatNativeDateModule, MatIconModule, MatCheckboxModule, 
         MatListModule, MatTableModule, MatSortModule,
         MatCardModule,MatPaginator, MatSelectModule,
-        MatChipsModule, MatDialogModule ]
+        MatChipsModule, MatDialogModule, MatSnackBarModule,
+        ]
 
 })
 export class MaterialModule{}
