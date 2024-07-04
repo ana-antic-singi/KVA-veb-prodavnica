@@ -31,8 +31,10 @@ export class CartService {
     }
   }
 
+
   private updateCartItems() {
     const items = Array.from(this.cartItemsMap.entries()).map(([product, count]) => ({ product, count }));
     this.cartItemsSubject.next(items);
   }
+
 }

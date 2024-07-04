@@ -5,12 +5,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(this.hasLoggedInUser());
+  private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
   loggedInStatus = this.loggedIn.asObservable();
 
   constructor() {}
 
-  private hasLoggedInUser(): boolean {
+  private isLoggedIn(): boolean {
     return !!localStorage.getItem('loggedInUser');
   }
 

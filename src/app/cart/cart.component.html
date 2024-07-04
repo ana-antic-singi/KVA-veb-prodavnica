@@ -4,4 +4,8 @@
     <p>{{item.product.name}} - {{item.product.price}} RSD ({{item.count}})</p>
     <button mat-button (click)="removeFromCart(item.product)">Remove</button>
   </div>
+  <div class="total-price">
+    <h3>Total: {{ getTotalPrice(cartItems) }} RSD</h3>
+  </div>
+  <button mat-raised-button color="primary" (click)="openCheckoutDialog()">Checkout</button>
 </div>

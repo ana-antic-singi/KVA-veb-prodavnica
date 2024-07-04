@@ -14,6 +14,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductService } from './product/product.service';
 import { CartComponent } from './cart/cart.component';
 import { UserService } from './auth/user.service';
+import { CheckoutDialogComponent } from './checkout-dialog/checkout-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { UserService } from './auth/user.service';
     HomeComponent,
     ProductComponent,
     CartComponent,
+    CheckoutDialogComponent,
   ],
   imports: [
     BrowserModule,

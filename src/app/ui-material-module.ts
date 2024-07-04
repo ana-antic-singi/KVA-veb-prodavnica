@@ -70,6 +70,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+
 @NgModule({
     imports:[
         MatFormFieldModule, MatInputModule, MatButtonModule, 
@@ -77,14 +79,14 @@ import { MatChipsModule } from '@angular/material/chips';
         MatNativeDateModule, MatIconModule, MatCheckboxModule, 
         MatListModule, MatTableModule, MatSortModule,
         MatCardModule, MatPaginator, MatSelectModule,
-        MatChipsModule, ],
+        MatChipsModule, MatDialogModule],
     exports:[
         MatFormFieldModule, MatInputModule, MatButtonModule, 
         MatSidenavModule, MatToolbarModule, MatDatepickerModule, 
         MatNativeDateModule, MatIconModule, MatCheckboxModule, 
         MatListModule, MatTableModule, MatSortModule,
         MatCardModule,MatPaginator, MatSelectModule,
-        MatChipsModule, ]
+        MatChipsModule, MatDialogModule ]
 
 })
 export class MaterialModule{}
